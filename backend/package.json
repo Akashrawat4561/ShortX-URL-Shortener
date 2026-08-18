@@ -1,0 +1,29 @@
+{
+  "name": "shortx-backend",
+  "version": "1.0.0",
+  "description": "Clean production-grade MERN ShortX Backend API",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "express-useragent": "^2.2.2",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.3.1",
+    "morgan": "^1.11.0",
+    "qrcode": "^1.5.3",
+    "valid-url": "^1.0.9"
+  }
+}
