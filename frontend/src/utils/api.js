@@ -19,11 +19,21 @@ export const apiFetch = async (url, options = {}) => {
     headers
   });
 
-  const data = await response.json();
+  let data;
+  const contentType = response.headers.get("content-type");
+  const text = await response.text();
+  
+  try {
+    data = text ? JSON.parse(text) : {};
+  } catch (err) {
+    throw new Error(
+      `API Error (${response.status}): Expected JSON but received ${contentType}. Response: ${text.substring(0, 50)}...`
+    );
+  }
 
   if (!response.ok) {
     throw new Error(
-      data.error || `Request failed with status ${response.status}`
+      data.error || data.message || `Request failed with status ${response.status}`
     );
   }
 
